@@ -1,13 +1,12 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version change: 1.4.0 → 1.5.0 (changed AI attribution method to --author flag)
+Version change: 1.5.0 → 1.5.1 (formatted changelog section and updated TOC structure)
 Added principles: None
-Modified principles:
-  - VI. AI Attribution (changed from Co-Authored-By to --author flag method)
+Modified principles: None
 Added sections: None
 Removed sections: None
-Templates requiring updates: None (internal governance change)
+Templates requiring updates: None (formatting and documentation improvement)
 Follow-up TODOs: None
 -->
 
@@ -16,15 +15,21 @@ Follow-up TODOs: None
 ## Table of Contents
 
 1. [Core Principles](#core-principles)
-   - [I. Code Quality Excellence](#i-code-quality-excellence)
-   - [II. Testing Standards (NON-NEGOTIABLE)](#ii-testing-standards-non-negotiable)
-   - [III. User Experience Consistency](#iii-user-experience-consistency)
-   - [IV. Performance Requirements](#iv-performance-requirements)
-   - [V. Atomic Commits](#v-atomic-commits)
-   - [VI. AI Attribution](#vi-ai-attribution)
+    - [I. Code Quality Excellence](#i-code-quality-excellence)
+    - [II. Testing Standards (NON-NEGOTIABLE)](#ii-testing-standards-non-negotiable)
+    - [III. User Experience Consistency](#iii-user-experience-consistency)
+    - [IV. Performance Requirements](#iv-performance-requirements)
+    - [V. Atomic Commits](#v-atomic-commits)
+    - [VI. AI Attribution](#vi-ai-attribution)
 2. [Development Workflow](#development-workflow)
 3. [Governance](#governance)
 4. [Changelog](#changelog)
+    - [Version 1.5.0](#version-150-2026-03-18)
+    - [Version 1.4.0](#version-140-2026-03-18)
+    - [Version 1.3.0](#version-130-2026-03-18)
+    - [Version 1.2.0](#version-120-2026-03-18)
+    - [Version 1.1.0](#version-110-2026-03-18)
+    - [Version 1.0.0](#version-100-2026-03-18)
 
 ## Core Principles
 
@@ -174,31 +179,148 @@ git commit --author="Qwen-Coder <224605497+qwencoder@users.noreply.github.com>" 
 
 ## Changelog
 
-**Version 1.5.0** (2026-03-18)
-- Modified: AI Attribution principle (Principle VI) - changed from Co-Authored-By to --author flag method
+### **Version 1.5.1** (2026-03-18)
 
-**Version 1.4.0** (2026-03-18)
-- Added: AI Attribution principle (Principle VI)
-- Modified: Atomic Commits principle (Principle V) - separated attribution requirement into Principle VI
+**Impact Report:**
+- **Type:** PATCH (formatting and documentation improvement)
+- **Breaking Changes:** None
+- **Migration Required:** No
 
-**Version 1.3.0** (2026-03-18)
-- Added: Atomic Commits with Attribution principle (Principle V)
+**Changes:**
+- **Modified:** Table of Contents structure
+  - Changed version entries from numbered list (`1.`, `2.`) to bullet points (`-`)
+  - Improves visual consistency with rest of TOC structure
+- **Modified:** Changelog section formatting
+  - Added horizontal rule separators (`---`) between version entries
+  - Enhanced visual hierarchy with consistent heading styles
+  - Improved readability and scanability of version history
 
-**Version 1.2.0** (2026-03-18)
-- Added: Table of Contents section for improved navigation
+**Rationale:**
+- Consistent TOC formatting improves document navigation
+- Visual separators between versions make changelog easier to scan
+- Professional formatting enhances document maintainability
 
-**Version 1.1.0** (2026-03-18)
-- Added: Changelog section for tracking constitution evolution
+**Affected Workflows:**
+- None (documentation-only change)
 
-**Version 1.0.0** (2026-03-18)
-- Added: Core Principles (Code Quality, Testing Standards, UX Consistency, Performance)
-- Added: Development Workflow section
-- Added: Governance section
+---
 
-**Versioning Policy**:
-- MAJOR.MINOR.PATCH format (e.g., 1.2.0)
-- MAJOR: Backward-incompatible changes (principle removal/redefinition)
-- MINOR: New principles, sections, or material expansions
-- PATCH: Clarifications, wording fixes, non-semantic refinements
+### **Version 1.5.0** (2026-03-18)
 
-**Version**: 1.5.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
+**Impact Report:**
+- **Type:** MINOR (changed attribution mechanism, backward-compatible)
+- **Breaking Changes:** None
+- **Migration Required:** No
+
+**Changes:**
+- **Modified:** Principle VI (AI Attribution) - Changed from `Co-Authored-By` trailer to `--author` flag method
+  - Old: Added `Co-Authored-By: Qwen-Coder <...>` in commit message body
+  - New: Uses `git commit --author="Qwen-Coder <...>"` to set AI as original author
+  - Rationale: Properly distinguishes between author (creator) and committer (approver) roles
+
+**Affected Workflows:**
+- All AI-assisted commits must now use `--author` flag instead of `Co-Authored-By` trailer
+- Git history will show AI as author, human as committer
+
+---
+
+### **Version 1.4.0** (2026-03-18)
+
+**Impact Report:**
+- **Type:** MINOR (added new principle, separated concerns)
+- **Breaking Changes:** None
+- **Migration Required:** No
+
+**Changes:**
+- **Added:** Principle VI (AI Attribution) as standalone principle
+- **Modified:** Principle V (Atomic Commits) - Removed attribution requirement, now in Principle VI
+
+**Rationale:**
+- Separating AI attribution into its own principle improves clarity and discoverability
+- Atomic Commits principle now focuses purely on commit size and structure
+
+---
+
+### **Version 1.3.0** (2026-03-18)
+
+**Impact Report:**
+- **Type:** MINOR (added new principle)
+- **Breaking Changes:** None
+- **Migration Required:** No
+
+**Changes:**
+- **Added:** Principle V (Atomic Commits with Attribution)
+  - Requires small, atomic commits for easy review
+  - Mandates AI attribution via `Co-Authored-By` for AI-assisted work
+
+**Rationale:**
+- Atomic commits enable safer rollbacks and easier code review
+- AI attribution ensures transparency about code origin
+
+---
+
+### **Version 1.2.0** (2026-03-18)
+
+**Impact Report:**
+- **Type:** MINOR (navigation improvement)
+- **Breaking Changes:** None
+- **Migration Required:** No
+
+**Changes:**
+- **Added:** Table of Contents section with anchor links to all major sections
+
+**Rationale:**
+- Improves navigation in large constitution document
+- Enables quick access to specific principles
+
+---
+
+### **Version 1.1.0** (2026-03-18)
+
+**Impact Report:**
+- **Type:** MINOR (added tracking mechanism)
+- **Breaking Changes:** None
+- **Migration Required:** No
+
+**Changes:**
+- **Added:** Changelog section for tracking constitution evolution
+
+**Rationale:**
+- Provides visibility into constitution changes over time
+- Helps team understand impact of amendments
+
+---
+
+### **Version 1.0.0** (2026-03-18)
+
+**Impact Report:**
+- **Type:** MAJOR (initial release)
+- **Breaking Changes:** N/A (initial release)
+- **Migration Required:** N/A
+
+**Changes:**
+- **Added:** Core Principles
+  - I. Code Quality Excellence
+  - II. Testing Standards (NON-NEGOTIABLE)
+  - III. User Experience Consistency
+  - IV. Performance Requirements
+- **Added:** Development Workflow section
+- **Added:** Governance section with amendment process
+
+**Rationale:**
+- Establishes foundational principles for photo album organizer project
+- Ensures code quality, test coverage, UX consistency, and performance
+- Provides governance framework for future changes
+
+---
+
+## Versioning Policy
+
+- **Format:** MAJOR.MINOR.PATCH (e.g., 1.2.0)
+- **MAJOR:** Backward-incompatible changes (principle removal/redefinition)
+- **MINOR:** New principles, sections, or material expansions
+- **PATCH:** Clarifications, wording fixes, non-semantic refinements
+
+**Current Version**: 1.5.1  
+**Ratified**: 2026-03-18  
+**Last Amended**: 2026-03-18
