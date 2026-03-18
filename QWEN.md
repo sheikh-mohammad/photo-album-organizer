@@ -218,17 +218,15 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 - Provide detailed description as a second `-m` flag for non-trivial changes.
 
 **AI Attribution (Constitution Principle VI)**:
-- All AI-assisted commits MUST include attribution:
+- All AI-assisted commits MUST use the `--author` flag to set AI as the original author:
+  ```bash
+  git commit --author="Qwen-Coder <224605497+qwencoder@users.noreply.github.com>" -m "<commit message>"
   ```
-  Co-Authored-By: Qwen-Coder <224605497+qwencoder@users.noreply.github.com>
-  ```
-- Attribution MUST be a separate line at the end of the commit message body.
+- This sets the AI as the **author** (original creator) while you remain the **committer** (who applied the change).
 
 **Example Commit Command**:
 ```bash
-git commit -m "refactor: migrate command config files from TOML to Markdown" \
-           -m "Convert all .qwen/commands/*.toml files to .md format" \
-           -m "Co-Authored-By: Qwen-Coder <224605497+qwencoder@users.noreply.github.com>"
+git commit --author="Qwen-Coder <224605497+qwencoder@users.noreply.github.com>" -m "Implement the user profile page."
 ```
 
 **Push After Completion**:

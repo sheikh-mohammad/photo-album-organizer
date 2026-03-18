@@ -1,11 +1,10 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version change: 1.3.0 → 1.4.0 (separated Atomic Commits and AI Attribution into distinct principles)
-Added principles:
-  - VI. AI Attribution
+Version change: 1.4.0 → 1.5.0 (changed AI attribution method to --author flag)
+Added principles: None
 Modified principles:
-  - V. Atomic Commits (removed attribution requirement, now in Principle VI)
+  - VI. AI Attribution (changed from Co-Authored-By to --author flag method)
 Added sections: None
 Removed sections: None
 Templates requiring updates: None (internal governance change)
@@ -122,24 +121,22 @@ All work MUST be committed in small, atomic increments to enable easy review and
 
 ### VI. AI Attribution
 
-All AI-assisted work MUST include proper attribution to acknowledge AI contributions.
+All AI-assisted work MUST include proper attribution by setting the AI as the commit author.
 
 **Attribution Requirement**:
-- All commits generated with AI assistance MUST include the attribution line:
+- All commits generated with AI assistance MUST use the `--author` flag:
+  ```bash
+  git commit --author="Qwen-Coder <224605497+qwencoder@users.noreply.github.com>" -m "<commit message>"
   ```
-  Co-Authored-By: Qwen-Coder <224605497+qwencoder@users.noreply.github.com>
-  ```
-- Attribution MUST be added as a separate line at the end of the commit message body.
+- This method sets the AI as the **original author** of the changes, while the human remains the **committer** (the person who applied the commit to the repository).
 - This attribution is non-negotiable and applies to all AI-assisted work.
 
 **Example Commit**:
 ```bash
-git commit -m "refactor: migrate command config files from TOML to Markdown" \
-           -m "Convert all .qwen/commands/*.toml files to .md format for improved readability" \
-           -m "Co-Authored-By: Qwen-Coder <224605497+qwencoder@users.noreply.github.com>"
+git commit --author="Qwen-Coder <224605497+qwencoder@users.noreply.github.com>" -m "Implement the user profile page."
 ```
 
-**Rationale**: AI attribution ensures proper credit and transparency about the origin of code contributions, fostering trust and acknowledging the collaborative nature of AI-assisted development.
+**Rationale**: Using `--author` properly credits the AI as the original creator of the code while maintaining human oversight and responsibility as the committer who reviewed and approved the changes.
 
 ## Development Workflow
 
@@ -177,6 +174,9 @@ git commit -m "refactor: migrate command config files from TOML to Markdown" \
 
 ## Changelog
 
+**Version 1.5.0** (2026-03-18)
+- Modified: AI Attribution principle (Principle VI) - changed from Co-Authored-By to --author flag method
+
 **Version 1.4.0** (2026-03-18)
 - Added: AI Attribution principle (Principle VI)
 - Modified: Atomic Commits principle (Principle V) - separated attribution requirement into Principle VI
@@ -201,4 +201,4 @@ git commit -m "refactor: migrate command config files from TOML to Markdown" \
 - MINOR: New principles, sections, or material expansions
 - PATCH: Clarifications, wording fixes, non-semantic refinements
 
-**Version**: 1.4.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
+**Version**: 1.5.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
