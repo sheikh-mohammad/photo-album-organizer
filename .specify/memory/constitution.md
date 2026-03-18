@@ -1,10 +1,10 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version change: 1.1.0 → 1.2.0 (added table of contents section)
-Added principles: None
-Added sections:
-  - Table of Contents
+Version change: 1.2.0 → 1.3.0 (added Atomic Commit principle)
+Added principles:
+  - V. Atomic Commits with Attribution
+Added sections: None
 Removed sections: None
 Templates requiring updates: None (internal governance change)
 Follow-up TODOs: None
@@ -19,6 +19,7 @@ Follow-up TODOs: None
    - [II. Testing Standards (NON-NEGOTIABLE)](#ii-testing-standards-non-negotiable)
    - [III. User Experience Consistency](#iii-user-experience-consistency)
    - [IV. Performance Requirements](#iv-performance-requirements)
+   - [V. Atomic Commits with Attribution](#v-atomic-commits-with-attribution)
 2. [Development Workflow](#development-workflow)
 3. [Governance](#governance)
 4. [Changelog](#changelog)
@@ -99,6 +100,38 @@ All features MUST meet defined performance budgets to ensure responsive, scalabl
 
 **Rationale**: Photo libraries grow over time. Performance budgets ensure the system remains responsive as users accumulate thousands of memories, preventing frustration and abandonment.
 
+### V. Atomic Commits with Attribution
+
+All work MUST be committed in small, atomic increments with proper attribution to AI assistance.
+
+**Atomic Commit Rules**:
+- Each commit MUST represent a single, logical change (e.g., one feature, one fix, one refactor).
+- Commits MUST be small enough to be reviewed in under 10 minutes.
+- Related changes MUST be grouped together; unrelated changes MUST be separate commits.
+- Work-in-progress commits MUST be squashed before merge unless they represent meaningful milestones.
+
+**Commit Message Format**:
+- All commits MUST follow conventional commit format: `<type>: <description>`
+- Types MUST be one of: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
+- Detailed description MUST be provided as a second `-m` flag when change is non-trivial.
+
+**AI Attribution Requirement**:
+- All commits generated with AI assistance MUST include attribution line:
+  ```
+  Co-Authored-By: Qwen-Coder <224605497+qwencoder@users.noreply.github.com>
+  ```
+- Attribution MUST be added as a separate line at the end of the commit message body.
+- This attribution is non-negotiable and applies to all AI-assisted work.
+
+**Example Commit**:
+```bash
+git commit -m "refactor: migrate command config files from TOML to Markdown" \
+           -m "Convert all .qwen/commands/*.toml files to .md format for improved readability" \
+           -m "Co-Authored-By: Qwen-Coder <224605497+qwencoder@users.noreply.github.com>"
+```
+
+**Rationale**: Atomic commits enable easy code review, simplified debugging, and safe rollbacks. AI attribution ensures proper credit and transparency about the origin of code contributions.
+
 ## Development Workflow
 
 **Code Review Requirements**:
@@ -135,6 +168,9 @@ All features MUST meet defined performance budgets to ensure responsive, scalabl
 
 ## Changelog
 
+**Version 1.3.0** (2026-03-18)
+- Added: Atomic Commits with Attribution principle (Principle V)
+
 **Version 1.2.0** (2026-03-18)
 - Added: Table of Contents section for improved navigation
 
@@ -152,4 +188,4 @@ All features MUST meet defined performance budgets to ensure responsive, scalabl
 - MINOR: New principles, sections, or material expansions
 - PATCH: Clarifications, wording fixes, non-semantic refinements
 
-**Version**: 1.2.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
+**Version**: 1.3.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
