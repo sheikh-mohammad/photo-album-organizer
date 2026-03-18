@@ -1,55 +1,133 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT
+==================
+Version change: 0.0.0 → 1.0.0 (initial constitution)
+Added principles:
+  - I. Code Quality Excellence
+  - II. Testing Standards (NON-NEGOTIABLE)
+  - III. User Experience Consistency
+  - IV. Performance Requirements
+Added sections:
+  - Development Workflow
+  - Governance
+Removed sections: None (initial version)
+Templates requiring updates:
+  - .specify/templates/plan-template.md ✅ aligned (Constitution Check section present)
+  - .specify/templates/spec-template.md ✅ aligned (supports testing requirements)
+  - .specify/templates/tasks-template.md ✅ aligned (supports test-first workflow)
+Follow-up TODOs: None
+-->
+
+# Photo Album Organizer Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Code Quality Excellence
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+All code MUST adhere to high-quality standards that ensure maintainability, readability, and long-term sustainability.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**Non-Negotiable Rules**:
+- All public functions and classes MUST have clear docstrings explaining purpose, parameters, and return values.
+- Code MUST follow established style guides for the chosen language (e.g., PEP 8 for Python).
+- Functions MUST be small, focused, and have a single responsibility (max 30 lines recommended).
+- Complex logic MUST be accompanied by inline comments explaining the "why", not the "what".
+- All code MUST pass linting and static analysis tools before merge.
+- Magic numbers and strings MUST be extracted to named constants.
+- Error handling MUST be explicit; silent failures are prohibited.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: Photo album organizers are long-term projects where users accumulate memories over years. Code quality ensures the system remains maintainable as features grow and requirements evolve.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### II. Testing Standards (NON-NEGOTIABLE)
 
-### [PRINCIPLE_6_NAME]
+All features MUST be developed using Test-Driven Development (TDD) methodology. This principle is non-negotiable and supersedes speed of delivery.
 
+**Red-Green-Refactor Cycle**:
+1. **Red**: Write a failing test first that defines the desired behavior.
+2. **Green**: Implement the minimum code necessary to make the test pass.
+3. **Refactor**: Improve code structure while keeping all tests green.
 
-[PRINCIPLE__DESCRIPTION]
+**Testing Requirements**:
+- Unit tests MUST cover all business logic, edge cases, and error paths.
+- Integration tests MUST verify interactions between components and external systems.
+- Contract tests MUST validate API boundaries and data schemas.
+- Test coverage MUST exceed 80% for all new code; critical paths require 100%.
+- Tests MUST be deterministic, isolated, and fast (<100ms per unit test).
+- Test names MUST describe the scenario being tested (e.g., `test_upload_photo_when_storage_full_raises_error`).
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: TDD ensures features are built to specification, prevents regressions during refactoring, and provides living documentation of system behavior. For a photo organizer handling irreplaceable user data, tests are a safety net against data loss.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. User Experience Consistency
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+All user-facing features MUST provide a consistent, intuitive, and accessible experience across the entire application.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Design Principles**:
+- **Consistency**: Similar actions MUST behave similarly across all screens and workflows.
+- **Feedback**: Users MUST receive immediate, clear feedback for every action (success, error, progress).
+- **Forgiveness**: Destructive actions MUST require confirmation; users MUST be able to undo operations where feasible.
+- **Accessibility**: UI MUST support keyboard navigation, screen readers, and meet WCAG 2.1 AA contrast requirements.
+- **Progressive Disclosure**: Advanced options MUST be hidden by default; common actions MUST be prominent.
+- **Error Messages**: MUST be user-friendly, actionable, and never expose internal implementation details.
+
+**Interaction Standards**:
+- Loading states MUST display within 100ms for async operations.
+- Photo operations (upload, organize, tag) MUST show progress indicators for batches >10 items.
+- Search and filter results MUST update within 500ms or show loading state.
+- Navigation MUST be consistent: back buttons return to previous context, breadcrumbs show hierarchy.
+
+**Rationale**: Users interact with photo albums emotionally—they're organizing memories, not just files. Consistent, forgiving UX reduces anxiety and builds trust in the system.
+
+### IV. Performance Requirements
+
+All features MUST meet defined performance budgets to ensure responsive, scalable photo management.
+
+**Performance Budgets**:
+- **Photo Upload**: Single photo (<10MB) MUST complete upload within 3 seconds on 10Mbps connection.
+- **Gallery Load**: Thumbnail grid (100 photos) MUST render within 2 seconds.
+- **Search**: Text search across 10,000 photos MUST return results within 500ms (p95).
+- **Memory Usage**: Application MUST stay under 500MB RAM for typical usage (<1000 photos in view).
+- **API Latency**: All API endpoints MUST respond within 200ms (p95) under normal load.
+- **Batch Operations**: Processing 100 photos (resize, tag, organize) MUST complete within 60 seconds.
+
+**Scalability Requirements**:
+- System MUST support libraries up to 100,000 photos without degradation.
+- Database queries MUST be indexed; full table scans prohibited on production data.
+- Image processing MUST use streaming for large files (>50MB); no loading entire file into memory.
+- Caching MUST be implemented for frequently accessed metadata (tags, albums, recent photos).
+
+**Rationale**: Photo libraries grow over time. Performance budgets ensure the system remains responsive as users accumulate thousands of memories, preventing frustration and abandonment.
+
+## Development Workflow
+
+**Code Review Requirements**:
+- All changes MUST be reviewed by at least one team member before merge.
+- Reviewers MUST verify constitution compliance (principles I-IV) as part of review.
+- PR descriptions MUST reference related user stories and test coverage.
+
+**Definition of Done**:
+- All tests pass (unit, integration, contract).
+- Code coverage meets 80% threshold.
+- Linting and static analysis pass with zero errors.
+- Performance benchmarks meet budgets (for affected features).
+- Documentation updated (API docs, user guides if applicable).
+- Constitution compliance verified.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+**Amendment Process**:
+- Proposals MUST be submitted as a PR to this constitution file.
+- Changes require unanimous team approval.
+- Breaking changes (principle removal, redefinition) require MAJOR version bump.
+- New principles or material expansions require MINOR version bump.
+- Clarifications and wording improvements require PATCH version bump.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Versioning Policy**:
+- This constitution follows semantic versioning: MAJOR.MINOR.PATCH.
+- Version history MUST be tracked in git commit history.
+- Ratification date marks initial adoption; last amended date updates on each change.
+
+**Compliance Review**:
+- All PRs MUST be checked against constitution principles before merge.
+- Quarterly reviews SHOULD assess whether principles remain relevant and actionable.
+- Violations MUST be documented with justification in PR comments.
+
+**Version**: 1.0.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
