@@ -1,16 +1,27 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version change: 1.0.0 → 1.1.0 (added changelog section)
+Version change: 1.1.0 → 1.2.0 (added table of contents section)
 Added principles: None
 Added sections:
-  - Changelog
+  - Table of Contents
 Removed sections: None
 Templates requiring updates: None (internal governance change)
 Follow-up TODOs: None
 -->
 
 # Photo Album Organizer Constitution
+
+## Table of Contents
+
+1. [Core Principles](#core-principles)
+   - [I. Code Quality Excellence](#i-code-quality-excellence)
+   - [II. Testing Standards (NON-NEGOTIABLE)](#ii-testing-standards-non-negotiable)
+   - [III. User Experience Consistency](#iii-user-experience-consistency)
+   - [IV. Performance Requirements](#iv-performance-requirements)
+2. [Development Workflow](#development-workflow)
+3. [Governance](#governance)
+4. [Changelog](#changelog)
 
 ## Core Principles
 
@@ -124,6 +135,9 @@ All features MUST meet defined performance budgets to ensure responsive, scalabl
 
 ## Changelog
 
+**Version 1.2.0** (2026-03-18)
+- Added: Table of Contents section for improved navigation
+
 **Version 1.1.0** (2026-03-18)
 - Added: Changelog section for tracking constitution evolution
 
@@ -133,9 +147,9 @@ All features MUST meet defined performance budgets to ensure responsive, scalabl
 - Added: Governance section
 
 **Versioning Policy**:
-- MAJOR.MINOR.PATCH format (e.g., 1.1.0)
+- MAJOR.MINOR.PATCH format (e.g., 1.2.0)
 - MAJOR: Backward-incompatible changes (principle removal/redefinition)
 - MINOR: New principles, sections, or material expansions
 - PATCH: Clarifications, wording fixes, non-semantic refinements
 
-**Version**: 1.1.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
+**Version**: 1.2.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
