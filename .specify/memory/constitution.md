@@ -1,20 +1,12 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version change: 0.0.0 → 1.0.0 (initial constitution)
-Added principles:
-  - I. Code Quality Excellence
-  - II. Testing Standards (NON-NEGOTIABLE)
-  - III. User Experience Consistency
-  - IV. Performance Requirements
+Version change: 1.0.0 → 1.1.0 (added changelog section)
+Added principles: None
 Added sections:
-  - Development Workflow
-  - Governance
-Removed sections: None (initial version)
-Templates requiring updates:
-  - .specify/templates/plan-template.md ✅ aligned (Constitution Check section present)
-  - .specify/templates/spec-template.md ✅ aligned (supports testing requirements)
-  - .specify/templates/tasks-template.md ✅ aligned (supports test-first workflow)
+  - Changelog
+Removed sections: None
+Templates requiring updates: None (internal governance change)
 Follow-up TODOs: None
 -->
 
@@ -130,4 +122,20 @@ All features MUST meet defined performance budgets to ensure responsive, scalabl
 - Quarterly reviews SHOULD assess whether principles remain relevant and actionable.
 - Violations MUST be documented with justification in PR comments.
 
-**Version**: 1.0.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
+## Changelog
+
+**Version 1.1.0** (2026-03-18)
+- Added: Changelog section for tracking constitution evolution
+
+**Version 1.0.0** (2026-03-18)
+- Added: Core Principles (Code Quality, Testing Standards, UX Consistency, Performance)
+- Added: Development Workflow section
+- Added: Governance section
+
+**Versioning Policy**:
+- MAJOR.MINOR.PATCH format (e.g., 1.1.0)
+- MAJOR: Backward-incompatible changes (principle removal/redefinition)
+- MINOR: New principles, sections, or material expansions
+- PATCH: Clarifications, wording fixes, non-semantic refinements
+
+**Version**: 1.1.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
