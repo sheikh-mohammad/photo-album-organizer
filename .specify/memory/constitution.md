@@ -1,9 +1,11 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version change: 1.2.0 → 1.3.0 (added Atomic Commit principle)
+Version change: 1.3.0 → 1.4.0 (separated Atomic Commits and AI Attribution into distinct principles)
 Added principles:
-  - V. Atomic Commits with Attribution
+  - VI. AI Attribution
+Modified principles:
+  - V. Atomic Commits (removed attribution requirement, now in Principle VI)
 Added sections: None
 Removed sections: None
 Templates requiring updates: None (internal governance change)
@@ -19,7 +21,8 @@ Follow-up TODOs: None
    - [II. Testing Standards (NON-NEGOTIABLE)](#ii-testing-standards-non-negotiable)
    - [III. User Experience Consistency](#iii-user-experience-consistency)
    - [IV. Performance Requirements](#iv-performance-requirements)
-   - [V. Atomic Commits with Attribution](#v-atomic-commits-with-attribution)
+   - [V. Atomic Commits](#v-atomic-commits)
+   - [VI. AI Attribution](#vi-ai-attribution)
 2. [Development Workflow](#development-workflow)
 3. [Governance](#governance)
 4. [Changelog](#changelog)
@@ -100,9 +103,9 @@ All features MUST meet defined performance budgets to ensure responsive, scalabl
 
 **Rationale**: Photo libraries grow over time. Performance budgets ensure the system remains responsive as users accumulate thousands of memories, preventing frustration and abandonment.
 
-### V. Atomic Commits with Attribution
+### V. Atomic Commits
 
-All work MUST be committed in small, atomic increments with proper attribution to AI assistance.
+All work MUST be committed in small, atomic increments to enable easy review and safe rollbacks.
 
 **Atomic Commit Rules**:
 - Each commit MUST represent a single, logical change (e.g., one feature, one fix, one refactor).
@@ -115,8 +118,14 @@ All work MUST be committed in small, atomic increments with proper attribution t
 - Types MUST be one of: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 - Detailed description MUST be provided as a second `-m` flag when change is non-trivial.
 
-**AI Attribution Requirement**:
-- All commits generated with AI assistance MUST include attribution line:
+**Rationale**: Atomic commits enable easy code review, simplified debugging, and safe rollbacks. Small, focused changes reduce cognitive load and improve code quality.
+
+### VI. AI Attribution
+
+All AI-assisted work MUST include proper attribution to acknowledge AI contributions.
+
+**Attribution Requirement**:
+- All commits generated with AI assistance MUST include the attribution line:
   ```
   Co-Authored-By: Qwen-Coder <224605497+qwencoder@users.noreply.github.com>
   ```
@@ -130,7 +139,7 @@ git commit -m "refactor: migrate command config files from TOML to Markdown" \
            -m "Co-Authored-By: Qwen-Coder <224605497+qwencoder@users.noreply.github.com>"
 ```
 
-**Rationale**: Atomic commits enable easy code review, simplified debugging, and safe rollbacks. AI attribution ensures proper credit and transparency about the origin of code contributions.
+**Rationale**: AI attribution ensures proper credit and transparency about the origin of code contributions, fostering trust and acknowledging the collaborative nature of AI-assisted development.
 
 ## Development Workflow
 
@@ -168,6 +177,10 @@ git commit -m "refactor: migrate command config files from TOML to Markdown" \
 
 ## Changelog
 
+**Version 1.4.0** (2026-03-18)
+- Added: AI Attribution principle (Principle VI)
+- Modified: Atomic Commits principle (Principle V) - separated attribution requirement into Principle VI
+
 **Version 1.3.0** (2026-03-18)
 - Added: Atomic Commits with Attribution principle (Principle V)
 
@@ -188,4 +201,4 @@ git commit -m "refactor: migrate command config files from TOML to Markdown" \
 - MINOR: New principles, sections, or material expansions
 - PATCH: Clarifications, wording fixes, non-semantic refinements
 
-**Version**: 1.3.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
+**Version**: 1.4.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18

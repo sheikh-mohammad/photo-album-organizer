@@ -208,3 +208,30 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Commit and Push Guidelines
+
+**Atomic Commits (Constitution Principle V)**:
+- Each commit MUST represent a single, logical change.
+- Commits MUST be small enough to be reviewed in under 10 minutes.
+- Use conventional commit format: `<type>: <description>` (feat, fix, docs, style, refactor, test, chore).
+- Provide detailed description as a second `-m` flag for non-trivial changes.
+
+**AI Attribution (Constitution Principle VI)**:
+- All AI-assisted commits MUST include attribution:
+  ```
+  Co-Authored-By: Qwen-Coder <224605497+qwencoder@users.noreply.github.com>
+  ```
+- Attribution MUST be a separate line at the end of the commit message body.
+
+**Example Commit Command**:
+```bash
+git commit -m "refactor: migrate command config files from TOML to Markdown" \
+           -m "Convert all .qwen/commands/*.toml files to .md format" \
+           -m "Co-Authored-By: Qwen-Coder <224605497+qwencoder@users.noreply.github.com>"
+```
+
+**Push After Completion**:
+- After completing constitution updates, feature implementations, or any significant work, ALWAYS commit and push.
+- Run `git push origin <current-branch>` after successful commit.
+- Confirm commit hash and push success to user.
