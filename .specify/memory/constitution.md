@@ -2,26 +2,22 @@
   ============================================================================
   SYNC IMPACT REPORT
   ============================================================================
-  Version change: 0.0.0 → 1.0.0 (Initial ratification)
+  Version change: 1.0.0 → 1.1.0 (MINOR: new Changelog section added)
   
-  Added Principles:
-  - I. Code Quality First
-  - II. Test-Driven Development (Non-Negotiable)
-  - III. User Experience Consistency
-  - IV. Performance Requirements
-  - V. Security & Data Privacy
-  - VI. Simplicity & Maintainability
+  Added Principles: None
   
   Added Sections:
-  - Code Standards (replaces placeholder Section 2)
-  - Development Workflow (replaces placeholder Section 3)
+  - Changelog (tracks constitution version history)
   
-  Removed Sections: None (initial version)
+  Removed Sections: None
+  
+  Modified Sections:
+  - Governance (Versioning Policy clarified for changelog maintenance)
   
   Templates Status:
-  - ✅ .specify/templates/plan-template.md (Constitution Check section aligns)
-  - ✅ .specify/templates/spec-template.md (No constitution-specific constraints)
-  - ✅ .specify/templates/tasks-template.md (Testing discipline reflected)
+  - ✅ .specify/templates/plan-template.md (No changes needed)
+  - ✅ .specify/templates/spec-template.md (No changes needed)
+  - ✅ .specify/templates/tasks-template.md (No changes needed)
   
   Follow-up TODOs: None
   ============================================================================
@@ -153,6 +149,25 @@ Keep it simple; optimize for change:
 - **Rollback**: Deployments MUST be reversible within 5 minutes
 - **Monitoring**: New features MUST have observability (logs, metrics)
 
+## Changelog
+
+This section tracks all changes to the constitution for traceability.
+
+### Version 1.1.0 (2026-04-25)
+- **Added**: Changelog section for tracking constitution amendments
+- **Updated**: Governance section to reference changelog maintenance
+
+### Version 1.0.0 (2026-04-25)
+- **Initial ratification**
+- **Added Principles**:
+  - I. Code Quality First
+  - II. Test-Driven Development (Non-Negotiable)
+  - III. User Experience Consistency
+  - IV. Performance Requirements
+  - V. Security & Data Privacy
+  - VI. Simplicity & Maintainability
+- **Added Sections**: Code Standards, Development Workflow
+
 ## Governance
 
 This constitution supersedes all other development practices in the photo-album-organizer project.
@@ -161,8 +176,9 @@ This constitution supersedes all other development practices in the photo-album-
 1. Propose change with rationale
 2. Team review and discussion
 3. Update constitution with version bump
-4. Update dependent templates if needed
-5. Document in ADR if architecturally significant
+4. Update Changelog section with version, date, and summary
+5. Update dependent templates if needed
+6. Document in ADR if architecturally significant
 
 **Versioning Policy**:
 - MAJOR: Backward-incompatible principle changes or removals
@@ -174,4 +190,4 @@ This constitution supersedes all other development practices in the photo-album-
 - Quarterly review of constitution effectiveness
 - New team members MUST read and acknowledge constitution
 
-**Version**: 1.0.0 | **Ratified**: 2026-04-25 | **Last Amended**: 2026-04-25
+**Version**: 1.1.0 | **Ratified**: 2026-04-25 | **Last Amended**: 2026-04-25
