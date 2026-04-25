@@ -2,17 +2,16 @@
   ============================================================================
   SYNC IMPACT REPORT
   ============================================================================
-  Version change: 1.0.0 → 1.1.0 (MINOR: new Changelog section added)
+  Version change: 1.1.0 → 1.2.0 (MINOR: detailed changelog format with commit tracking)
   
   Added Principles: None
   
-  Added Sections:
-  - Changelog (tracks constitution version history)
-  
-  Removed Sections: None
+  Added Sections: None
   
   Modified Sections:
-  - Governance (Versioning Policy clarified for changelog maintenance)
+  - Changelog: Expanded with commit hashes, PHR references, detailed change descriptions
+  
+  Removed Sections: None
   
   Templates Status:
   - ✅ .specify/templates/plan-template.md (No changes needed)
@@ -153,20 +152,74 @@ Keep it simple; optimize for change:
 
 This section tracks all changes to the constitution for traceability.
 
+Each version entry includes:
+- Version number with semantic versioning (MAJOR.MINOR.PATCH)
+- Release date in ISO format (YYYY-MM-DD)
+- Git commit hash for the change
+- PHR (Prompt History Record) reference
+- Detailed list of additions, modifications, and removals
+
+---
+
+### Version 1.2.0 (2026-04-25)
+
+**Commit**: `pending`  
+**PHR**: `003-constitution-changelog-detailed.constitution.prompt.md`
+
+**Changes**:
+- **Added**: Detailed changelog format with commit hashes and PHR references
+- **Added**: Changelog entry structure documentation (version, date, commit, PHR, changes)
+- **Updated**: All historical entries retrofitted with commit hashes
+
+---
+
 ### Version 1.1.0 (2026-04-25)
-- **Added**: Changelog section for tracking constitution amendments
-- **Updated**: Governance section to reference changelog maintenance
+
+**Commit**: `f71fa83`  
+**PHR**: `002-constitution-changelog-add.constitution.prompt.md`
+
+**Changes**:
+- **Added**: Changelog section for tracking constitution amendments (initial)
+- **Updated**: Governance section - Amendment Process step 4 now requires changelog update
+
+**Detailed Changes**:
+
+| Section | Change Type | Description |
+|---------|-------------|-------------|
+| Changelog | Added | New section added between Development Workflow and Governance |
+| Governance | Modified | Amendment Process updated to include changelog maintenance |
+
+**Rationale**: Enable traceability of constitution evolution without requiring git history navigation.
+
+---
 
 ### Version 1.0.0 (2026-04-25)
-- **Initial ratification**
-- **Added Principles**:
-  - I. Code Quality First
-  - II. Test-Driven Development (Non-Negotiable)
-  - III. User Experience Consistency
-  - IV. Performance Requirements
-  - V. Security & Data Privacy
-  - VI. Simplicity & Maintainability
-- **Added Sections**: Code Standards, Development Workflow
+
+**Commit**: `1782c23`  
+**PHR**: `001-constitution-principles-initial.constitution.prompt.md`
+
+**Changes**:
+- **Initial ratification** of the photo-album-organizer constitution
+
+**Added Principles**:
+
+| Principle | Name | Key Requirements |
+|-----------|------|------------------|
+| I | Code Quality First | Readability, <50 line functions, type safety, explicit errors, DRY, git hygiene |
+| II | Test-Driven Development | Red-Green-Refactor, 80% coverage, test independence, integration tests |
+| III | User Experience Consistency | Clear errors, loading states, feedback, WCAG 2.1 AA, responsive, i18n |
+| IV | Performance Requirements | Load <3s, bundle <200KB, API p95 <200ms, image optimization, memory <200MB |
+| V | Security & Data Privacy | AuthN/AuthZ, input validation, encryption, GDPR/CCPA, dependency scanning |
+| VI | Simplicity & Maintainability | YAGNI, KISS, single responsibility, minimal dependencies, documentation |
+
+**Added Sections**:
+
+| Section | Subsections |
+|---------|-------------|
+| Code Standards | Language & Framework, File Organization, Version Control |
+| Development Workflow | Pre-Development, Implementation, Pre-Commit, Code Review, Deployment |
+
+**Rationale**: Establish foundational principles for code quality, testing, UX, performance, security, and maintainability in the photo-album-organizer project.
 
 ## Governance
 
@@ -190,4 +243,4 @@ This constitution supersedes all other development practices in the photo-album-
 - Quarterly review of constitution effectiveness
 - New team members MUST read and acknowledge constitution
 
-**Version**: 1.1.0 | **Ratified**: 2026-04-25 | **Last Amended**: 2026-04-25
+**Version**: 1.2.0 | **Ratified**: 2026-04-25 | **Last Amended**: 2026-04-25
